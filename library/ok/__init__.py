@@ -1,6 +1,6 @@
 import config
 from library.selenium import Page, SeleniumTestCase
-from library.ok.components import AuthForm
+from library.ok.components.main import AuthForm
 
 
 class OkPage(Page):

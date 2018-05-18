@@ -1,10 +1,10 @@
 from library.ok import OkPage
-from library.ok.components import RepostForm
+from library.ok.components.feed.feed_list import FeedList
 
 
 class FeedPage(OkPage):
     PATH = '/feed'
 
     @property
-    def repost_form(self):
-        return RepostForm(self.driver)
+    def feed_list(self):
+        return FeedList(self.driver)
