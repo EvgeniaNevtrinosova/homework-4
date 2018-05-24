@@ -28,6 +28,8 @@ SCREENSHOT_DIR = 'screenshots'
 BASE_URL = 'https://ok.ru'
 LOGIN = 'technopark14'
 PASSWORD = None
+LOGIN2 = 'technopark19'
+PASSWORD2 = None
 
 
 def get(name, default=None):

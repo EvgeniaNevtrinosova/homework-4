@@ -1,10 +1,13 @@
 import config
+from library.ok.components.main.top_menu import TopMenu
 from library.selenium import Page, SeleniumTestCase
 from library.ok.components.main import AuthForm
 
 
 class OkPage(Page):
     def login(self, login=None, password=None):
+        if len(self.driver.get_cookies()) > 0:
+            self.logout()
         main_page = self
         if self.driver.current_url != MainPage.get_url():
             main_page = MainPage(self.driver).open()
@@ -13,6 +16,9 @@ class OkPage(Page):
         if self.driver.current_url != MainPage.get_url():
             self.open()
         return self
+
+    def login2(self):
+        return self.login(config.get('LOGIN2'), config.get('PASSWORD2'))
 
     def logout(self):
         self.driver.delete_all_cookies()
@@ -27,6 +33,10 @@ class MainPage(OkPage):
     @property
     def auth_form(self):
         return AuthForm(self.driver)
+
+    @property
+    def top_menu(self):
+        return TopMenu(self.driver)
 
 
 class LoggedInTestCase(SeleniumTestCase):
