@@ -8,5 +8,5 @@ class FeedList(Component):
 
     @property
     def posts(self):
-        return [Post(self.driver, post) for post in
-                self.driver.find_elements_by_xpath('{}/{}'.format(FeedList.FEED_LIST, self.POST))]
+        return (Post(self.driver, post) for post in
+                self.driver.find_elements_by_xpath('{}/{}'.format(FeedList.FEED_LIST, self.POST)))

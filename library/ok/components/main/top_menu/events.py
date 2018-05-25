@@ -12,4 +12,17 @@ class EventsPopup(Component):
 
     @property
     def events(self):
-        return self.driver.find_elements_by_xpath(self.EVENT)
+        return [Event(event) for event in self.driver.find_elements_by_xpath(self.EVENT)]
+
+
+class Event(Component):
+    AUTHOR = '/div/div[1]/div[5]/div[1]/span/span/span/a'
+    COMMENT = '/div/div[1]/div[5]/div[2]'
+
+    @property
+    def author(self):
+        return self.driver.find_element_by_xpath(self.AUTHOR).text
+
+    @property
+    def comment(self):
+        return self.driver.find_element_by_xpath(self.COMMENT).text

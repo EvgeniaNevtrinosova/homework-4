@@ -1,7 +1,7 @@
 from library.ok.components.widget import Widget
 
 
-class Comment(Widget):
+class CommentButton(Widget):
     COMMENT = '{}/li[1]'.format(Widget.WIDGET_LIST)
     TEXT = '//div[@id="ok-e-d"]'
     SUBMIT = '//div[@id="ok-e-d_button"]'
