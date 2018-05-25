@@ -37,7 +37,7 @@ class CommentTestCase(SeleniumTestCase):
         self.assertIsNotNone(post, 'Post, just now created by us not found')
 
         post.comment(self.COMMENT_TEXT)
-        new_post = Post(self.driver, post)
+        new_post = Post(self.driver, post).find_elements()
         comment = next((comment for comment in new_post.comments if comment.author == login), None)
         self.assertIsNotNone(comment, 'Comment, just now created by us not found')
 

@@ -4,6 +4,6 @@ from library.ok.pages import FeedPage
 
 class RepostTestCase(LoggedInTestCase):
     def test_repost_topic(self):
-        FeedPage(self.driver).open().feed_list.posts[0].repost()
+        next(FeedPage(self.driver).open().feed_list.posts).repost()
         self.driver.refresh()
         # TODO: Check if topic reposts
